@@ -52,11 +52,23 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#governing-equations-of-motion">Governing Equations of Motion</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#time-of-flight">Time of Flight</a>
+</ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#horizontal-range">Horizontal Range</a>
+<li class="toctree-l3"><a class="reference internal" href="#vertical-motion">Vertical Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#solving-step-by-step">🔁 Solving Step-by-Step</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#what-each-term-means">What Each Term Means</a>
 </li>
 </ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#horizontal-motion">Horizontal Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-each-term-means_1">What Each Term Means</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-equations">Summary of Equations</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
 <ul>
@@ -209,29 +221,92 @@
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
 <h3 id="governing-equations-of-motion">Governing Equations of Motion</h3>
 <p>Starting from Newton's second law:</p>
+<h2 id="vertical-motion">Vertical Motion</h2>
+<p>From <strong>Newton's Second Law</strong>:</p>
 <div class="arithmatex">\[
-F = ma
+F = m \cdot a
 \]</div>
-<p>For projectile motion with no air resistance and constant gravity, we split the motion into horizontal and vertical components:</p>
-<p><strong>Horizontal motion:</strong></p>
+<p>Gravity is the only force acting, pulling the object downward:</p>
 <div class="arithmatex">\[
-x(t) = v₀ * cos(θ) * t
+F = -mg
 \]</div>
-<p><strong>Vertical motion:</strong></p>
+<p>Since acceleration is the second derivative of position with respect to time:</p>
 <div class="arithmatex">\[
-y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
+a = \frac{d^2y}{dt^2}
 \]</div>
-<h3 id="time-of-flight">Time of Flight</h3>
-<p>Set <span class="arithmatex">\(y(t) = 0\)</span> (when the projectile hits the ground):</p>
+<p>So we get the differential equation:</p>
 <div class="arithmatex">\[
-t = (2 * v₀ * sin(θ)) / g
+\frac{d^2y}{dt^2} = -g
 \]</div>
-<h3 id="horizontal-range">Horizontal Range</h3>
-<p>Substitute time into <span class="arithmatex">\(x(t)\)</span> to get the range:</p>
+<h3 id="solving-step-by-step">🔁 Solving Step-by-Step</h3>
+<ol>
+<li><strong>First integration</strong> — gives us the vertical velocity as a function of time:</li>
+</ol>
 <div class="arithmatex">\[
-R = (v₀² * sin(2θ)) / g
+\frac{dy}{dt} = -gt + C_1
 \]</div>
-<p>This shows how different initial conditions (like velocity or angle) give different paths.</p>
+<p>Where:
+- <span class="arithmatex">\(g\)</span> is the gravitational acceleration (<span class="arithmatex">\(9.81 \, \text{m/s}^2\)</span>)
+- <span class="arithmatex">\(C_1\)</span> is a constant of integration, representing the <strong>initial vertical velocity</strong>, <span class="arithmatex">\(v_{0y}\)</span></p>
+<p>So:</p>
+<div class="arithmatex">\[
+\frac{dy}{dt} = -gt + v_0 \sin(\theta)
+\]</div>
+<ol>
+<li><strong>Second integration</strong> — gives us vertical position as a function of time:</li>
+</ol>
+<div class="arithmatex">\[
+y(t) = -\frac{1}{2}gt^2 + C_1t + C_2
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(C_2\)</span> is the <strong>initial height</strong> <span class="arithmatex">\(y_0\)</span>
+- Substituting known values:</p>
+<div class="arithmatex">\[
+y(t) = -\frac{1}{2}gt^2 + v_0 \sin(\theta) \cdot t + y_0
+\]</div>
+<h3 id="what-each-term-means">What Each Term Means</h3>
+<ul>
+<li><span class="arithmatex">\(-\frac{1}{2}gt^2\)</span>: The object slows down going up or speeds up going down due to gravity.</li>
+<li><span class="arithmatex">\(v_0 \sin(\theta) \cdot t\)</span>: How far the object would travel upward if gravity didn't pull it down.</li>
+<li><span class="arithmatex">\(y_0\)</span>: The height from which the object was launched.</li>
+</ul>
+<hr/>
+<h2 id="horizontal-motion">Horizontal Motion</h2>
+<p>No forces act horizontally (ignoring air resistance), so acceleration is zero:</p>
+<div class="arithmatex">\[
+\frac{d^2x}{dt^2} = 0
+\]</div>
+<ol>
+<li><strong>First integration</strong>:</li>
+</ol>
+<div class="arithmatex">\[
+\frac{dx}{dt} = v_0 \cos(\theta)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(v_0 \cos(\theta)\)</span> is the <strong>initial horizontal velocity</strong></p>
+<ol>
+<li><strong>Second integration</strong>:</li>
+</ol>
+<div class="arithmatex">\[
+x(t) = v_0 \cos(\theta) \cdot t
+\]</div>
+<h3 id="what-each-term-means_1">What Each Term Means</h3>
+<ul>
+<li><span class="arithmatex">\(v_0 \cos(\theta) \cdot t\)</span>: Constant speed in the horizontal direction (since there's no horizontal force).</li>
+</ul>
+<hr/>
+<h2 id="summary-of-equations">Summary of Equations</h2>
+<ul>
+<li>
+<p><strong>Vertical position</strong>:<br/>
+<span class="arithmatex">\(y(t) = -\frac{1}{2}gt^2 + v_0 \sin(\theta)t + y_0\)</span></p>
+</li>
+<li>
+<p><strong>Horizontal position</strong>:<br/>
+<span class="arithmatex">\(x(t) = v_0 \cos(\theta)t\)</span></p>
+</li>
+</ul>
+<p>These equations form the <strong>parametric equations of projectile motion</strong>, letting us model the object’s path over time.</p>
 <hr/>
 <h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
 <h3 id="range-vs-angle">Range vs. Angle</h3>
