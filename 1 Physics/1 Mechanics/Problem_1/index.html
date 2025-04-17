@@ -222,12 +222,12 @@ x(t) = v₀ * cos(θ) * t
 y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
 \]</div>
 <h3 id="time-of-flight">Time of Flight</h3>
-<p>Set <code>y(t) = 0</code> (when the projectile hits the ground):</p>
+<p>Set <span class="arithmatex">\(y(t) = 0\)</span> (when the projectile hits the ground):</p>
 <div class="arithmatex">\[
 t = (2 * v₀ * sin(θ)) / g
 \]</div>
 <h3 id="horizontal-range">Horizontal Range</h3>
-<p>Substitute time into <code>x(t)</code> to get the range:</p>
+<p>Substitute time into <span class="arithmatex">\(x(t)\)</span> to get the range:</p>
 <div class="arithmatex">\[
 R = (v₀² * sin(2θ)) / g
 \]</div>
@@ -240,12 +240,12 @@ R = (v₀² * sin(2θ)) / g
 R(θ) = (v₀² / g) * sin(2θ)
 \]</div>
 <p>Key insights:
-- Maximum range when <code>θ = 45°</code>
-- <code>R(θ) = R(90° - θ)</code> (symmetric)</p>
+- Maximum range when <span class="arithmatex">\(θ = 45°\)</span>
+- <span class="arithmatex">\(R(θ) = R(90° - θ)\)</span> (symmetric)</p>
 <h3 id="effect-of-parameters">Effect of Parameters</h3>
 <ul>
-<li><strong>Velocity</strong>: Range increases with <code>v₀²</code></li>
-<li><strong>Gravity</strong>: Range decreases with higher <code>g</code></li>
+<li><strong>Velocity</strong>: Range increases with <span class="arithmatex">\(v₀²\)</span></li>
+<li><strong>Gravity</strong>: Range decreases with higher <span class="arithmatex">\(g\)</span></li>
 </ul>
 <hr/>
 <h2 id="3-practical-applications">3. Practical Applications</h2>
@@ -255,8 +255,8 @@ R(θ) = (v₀² / g) * sin(2θ)
 <li><strong>Science</strong>: Mars rovers or satellite launch planning</li>
 </ul>
 <p>Real-world tweaks:
-- Launch from a height: <code>y₀ ≠ 0</code>
-- Air resistance: add drag force <code>F = -kv</code>
+- Launch from a height: <span class="arithmatex">\(y₀ ≠ 0\)</span>
+- Air resistance: add drag force <span class="arithmatex">\(F = -kv\)</span>
 - Non-flat ground or wind effects</p>
 <hr/>
 <h2 id="4-python-simulation">4. Python Simulation</h2>
