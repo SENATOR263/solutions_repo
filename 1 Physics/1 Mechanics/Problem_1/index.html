@@ -48,6 +48,38 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#governing-equations-of-motion">Governing Equations of Motion</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#time-of-flight">Time of Flight</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-range">Horizontal Range</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#range-vs-angle">Range vs. Angle</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-parameters">Effect of Parameters</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-python-simulation">4. Python Simulation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-limitations">5. Limitations</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#future-improvements">Future Improvements</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#source">Source</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -174,6 +206,102 @@
 <h1 id="problem-1">Problem 1</h1>
 <p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The problem is straightforward: analyze how the range of a projectile depends on its angle of projection. Yet, beneath this simplicity lies a complex and versatile framework. The equations governing projectile motion involve both linear and quadratic relationships, making them accessible yet deeply insightful.</p>
 <p>What makes this topic particularly compelling is the number of free parameters involved in these equations, such as initial velocity, gravitational acceleration, and launch height. These parameters give rise to a diverse set of solutions that can describe a wide array of real-world phenomena, from the arc of a soccer ball to the trajectory of a rocket.</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="governing-equations-of-motion">Governing Equations of Motion</h3>
+<p>Starting from Newton's second law:</p>
+<pre><code>F = ma
+</code></pre>
+<p>For projectile motion with no air resistance and constant gravity, we split the motion into horizontal and vertical components:</p>
+<p><strong>Horizontal motion:</strong></p>
+<pre><code>x(t) = v₀ * cos(θ) * t
+</code></pre>
+<p><strong>Vertical motion:</strong></p>
+<pre><code>y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
+</code></pre>
+<h3 id="time-of-flight">Time of Flight</h3>
+<p>Set <code>y(t) = 0</code> (when the projectile hits the ground):</p>
+<pre><code>t = (2 * v₀ * sin(θ)) / g
+</code></pre>
+<h3 id="horizontal-range">Horizontal Range</h3>
+<p>Substitute time into <code>x(t)</code> to get the range:</p>
+<pre><code>R = (v₀² * sin(2θ)) / g
+</code></pre>
+<p>This shows how different initial conditions (like velocity or angle) give different paths.</p>
+<hr/>
+<h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
+<h3 id="range-vs-angle">Range vs. Angle</h3>
+<p>The formula:</p>
+<pre><code>R(θ) = (v₀² / g) * sin(2θ)
+</code></pre>
+<p>Key insights:
+- Maximum range when <code>θ = 45°</code>
+- <code>R(θ) = R(90° - θ)</code> (symmetric)</p>
+<h3 id="effect-of-parameters">Effect of Parameters</h3>
+<ul>
+<li><strong>Velocity</strong>: Range increases with <code>v₀²</code></li>
+<li><strong>Gravity</strong>: Range decreases with higher <code>g</code></li>
+</ul>
+<hr/>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<ul>
+<li><strong>Sports</strong>: Kicking or throwing balls</li>
+<li><strong>Engineering</strong>: Cannon design, sprinkler systems</li>
+<li><strong>Science</strong>: Mars rovers or satellite launch planning</li>
+</ul>
+<p>Real-world tweaks:
+- Launch from a height: <code>y₀ ≠ 0</code>
+- Air resistance: add drag force <code>F = -kv</code>
+- Non-flat ground or wind effects</p>
+<hr/>
+<h2 id="4-python-simulation">4. Python Simulation</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+g = 9.81
+
+def projectile_range(v0, theta_deg):
+    theta_rad = np.radians(theta_deg)
+    return (v0**2) * np.sin(2 * theta_rad) / g
+
+angles = np.linspace(0, 90, 300)
+initial_velocities = [10, 20, 30]
+
+plt.figure(figsize=(10, 6))
+for v0 in initial_velocities:
+    ranges = [projectile_range(v0, angle) for angle in angles]
+    plt.plot(angles, ranges, label=f"v₀ = {v0} m/s")
+
+plt.title("Projectile Range vs. Angle of Projection")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Range (meters)")
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image.png"/></p>
+<hr/>
+<h2 id="5-limitations">5. Limitations</h2>
+<ul>
+<li>Ignores air resistance and wind</li>
+<li>Assumes flat terrain and same launch/landing height</li>
+<li>Assumes constant gravity</li>
+</ul>
+<h3 id="future-improvements">Future Improvements</h3>
+<ul>
+<li>Add drag using numerical methods (Euler/Runge-Kutta)</li>
+<li>Handle angled terrain or varied heights</li>
+<li>Real-world simulations for sports and aerospace</li>
+</ul>
+<hr/>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Projectile motion = horizontal + vertical motion</li>
+<li>Max range at 45°</li>
+<li>Range ∝ <code>v₀²</code> and <code>sin(2θ)</code></li>
+<li>Python can simulate and visualize changes</li>
+</ul>
+<h2 id="source">Source</h2>
+<p><a href="https://colab.research.google.com/drive/1q9fo0dAn1ZB5Ip-0kn0WTFyc1tQPVGyB?usp=sharing">Colab</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
