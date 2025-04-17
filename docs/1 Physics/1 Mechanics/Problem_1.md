@@ -9,43 +9,113 @@ What makes this topic particularly compelling is the number of free parameters i
 
 Starting from Newton's second law:
 
-$$
-F = ma
-$$
+##  Vertical Motion
 
-For projectile motion with no air resistance and constant gravity, we split the motion into horizontal and vertical components:
-
-**Horizontal motion:**
+From **Newton's Second Law**:
 
 $$
-x(t) = v₀ * cos(θ) * t
+F = m \cdot a
 $$
 
-**Vertical motion:**
+Gravity is the only force acting, pulling the object downward:
 
 $$
-y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
+F = -mg
 $$
 
-### Time of Flight
-
-Set $y(t) = 0$ (when the projectile hits the ground):
+Since acceleration is the second derivative of position with respect to time:
 
 $$
-t = (2 * v₀ * sin(θ)) / g
+a = \frac{d^2y}{dt^2}
 $$
 
-### Horizontal Range
-
-Substitute time into $x(t)$ to get the range:
+So we get the differential equation:
 
 $$
-R = (v₀² * sin(2θ)) / g
+\frac{d^2y}{dt^2} = -g
 $$
 
-This shows how different initial conditions (like velocity or angle) give different paths.
+### 🔁 Solving Step-by-Step
+
+1. **First integration** — gives us the vertical velocity as a function of time:
+
+$$
+\frac{dy}{dt} = -gt + C_1
+$$
+
+Where:
+- $g$ is the gravitational acceleration ($9.81 \, \text{m/s}^2$)
+- $C_1$ is a constant of integration, representing the **initial vertical velocity**, $v_{0y}$
+
+So:
+
+$$
+\frac{dy}{dt} = -gt + v_0 \sin(\theta)
+$$
+
+2. **Second integration** — gives us vertical position as a function of time:
+
+$$
+y(t) = -\frac{1}{2}gt^2 + C_1t + C_2
+$$
+
+Where:
+- $C_2$ is the **initial height** $y_0$
+- Substituting known values:
+
+$$
+y(t) = -\frac{1}{2}gt^2 + v_0 \sin(\theta) \cdot t + y_0
+$$
+
+###  What Each Term Means
+
+- $-\frac{1}{2}gt^2$: The object slows down going up or speeds up going down due to gravity.
+- $v_0 \sin(\theta) \cdot t$: How far the object would travel upward if gravity didn't pull it down.
+- $y_0$: The height from which the object was launched.
 
 ---
+
+##  Horizontal Motion
+
+No forces act horizontally (ignoring air resistance), so acceleration is zero:
+
+$$
+\frac{d^2x}{dt^2} = 0
+$$
+
+1. **First integration**:
+
+$$
+\frac{dx}{dt} = v_0 \cos(\theta)
+$$
+
+Where:
+- $v_0 \cos(\theta)$ is the **initial horizontal velocity**
+
+2. **Second integration**:
+
+$$
+x(t) = v_0 \cos(\theta) \cdot t
+$$
+
+###  What Each Term Means
+
+- $v_0 \cos(\theta) \cdot t$: Constant speed in the horizontal direction (since there's no horizontal force).
+
+---
+
+##  Summary of Equations
+
+- **Vertical position**:  
+  $y(t) = -\frac{1}{2}gt^2 + v_0 \sin(\theta)t + y_0$
+
+- **Horizontal position**:  
+  $x(t) = v_0 \cos(\theta)t$
+
+These equations form the **parametric equations of projectile motion**, letting us model the object’s path over time.
+
+---
+
 
 ## 2. Analysis of the Range
 
