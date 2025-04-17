@@ -9,39 +9,39 @@ What makes this topic particularly compelling is the number of free parameters i
 
 Starting from Newton's second law:
 
-```
+$$
 F = ma
-```
+$$
 
 For projectile motion with no air resistance and constant gravity, we split the motion into horizontal and vertical components:
 
 **Horizontal motion:**
 
-```
+$$
 x(t) = v₀ * cos(θ) * t
-```
+$$
 
 **Vertical motion:**
 
-```
+$$
 y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
-```
+$$
 
 ### Time of Flight
 
 Set `y(t) = 0` (when the projectile hits the ground):
 
-```
+$$
 t = (2 * v₀ * sin(θ)) / g
-```
+$$
 
 ### Horizontal Range
 
 Substitute time into `x(t)` to get the range:
 
-```
+$$
 R = (v₀² * sin(2θ)) / g
-```
+$$
 
 This shows how different initial conditions (like velocity or angle) give different paths.
 
@@ -53,9 +53,9 @@ This shows how different initial conditions (like velocity or angle) give differ
 
 The formula:
 
-```
+$$
 R(θ) = (v₀² / g) * sin(2θ)
-```
+$$
 
 Key insights:
 - Maximum range when `θ = 45°`
