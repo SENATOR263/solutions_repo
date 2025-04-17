@@ -209,30 +209,36 @@
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
 <h3 id="governing-equations-of-motion">Governing Equations of Motion</h3>
 <p>Starting from Newton's second law:</p>
-<pre><code>F = ma
-</code></pre>
+<div class="arithmatex">\[
+F = ma
+\]</div>
 <p>For projectile motion with no air resistance and constant gravity, we split the motion into horizontal and vertical components:</p>
 <p><strong>Horizontal motion:</strong></p>
-<pre><code>x(t) = v₀ * cos(θ) * t
-</code></pre>
+<div class="arithmatex">\[
+x(t) = v₀ * cos(θ) * t
+\]</div>
 <p><strong>Vertical motion:</strong></p>
-<pre><code>y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
-</code></pre>
+<div class="arithmatex">\[
+y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
+\]</div>
 <h3 id="time-of-flight">Time of Flight</h3>
 <p>Set <code>y(t) = 0</code> (when the projectile hits the ground):</p>
-<pre><code>t = (2 * v₀ * sin(θ)) / g
-</code></pre>
+<div class="arithmatex">\[
+t = (2 * v₀ * sin(θ)) / g
+\]</div>
 <h3 id="horizontal-range">Horizontal Range</h3>
 <p>Substitute time into <code>x(t)</code> to get the range:</p>
-<pre><code>R = (v₀² * sin(2θ)) / g
-</code></pre>
+<div class="arithmatex">\[
+R = (v₀² * sin(2θ)) / g
+\]</div>
 <p>This shows how different initial conditions (like velocity or angle) give different paths.</p>
 <hr/>
 <h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
 <h3 id="range-vs-angle">Range vs. Angle</h3>
 <p>The formula:</p>
-<pre><code>R(θ) = (v₀² / g) * sin(2θ)
-</code></pre>
+<div class="arithmatex">\[
+R(θ) = (v₀² / g) * sin(2θ)
+\]</div>
 <p>Key insights:
 - Maximum range when <code>θ = 45°</code>
 - <code>R(θ) = R(90° - θ)</code> (symmetric)</p>
