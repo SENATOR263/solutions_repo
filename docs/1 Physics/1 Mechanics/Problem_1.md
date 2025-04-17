@@ -29,7 +29,7 @@ $$
 
 ### Time of Flight
 
-Set `y(t) = 0` (when the projectile hits the ground):
+Set $y(t) = 0$ (when the projectile hits the ground):
 
 $$
 t = (2 * v₀ * sin(θ)) / g
@@ -37,7 +37,7 @@ $$
 
 ### Horizontal Range
 
-Substitute time into `x(t)` to get the range:
+Substitute time into $x(t)$ to get the range:
 
 $$
 R = (v₀² * sin(2θ)) / g
@@ -58,13 +58,13 @@ R(θ) = (v₀² / g) * sin(2θ)
 $$
 
 Key insights:
-- Maximum range when `θ = 45°`
-- `R(θ) = R(90° - θ)` (symmetric)
+- Maximum range when $θ = 45°$
+- $R(θ) = R(90° - θ)$ (symmetric)
 
 ### Effect of Parameters
 
-- **Velocity**: Range increases with `v₀²`
-- **Gravity**: Range decreases with higher `g`
+- **Velocity**: Range increases with $v₀²$
+- **Gravity**: Range decreases with higher $g$
 
 ---
 
@@ -75,8 +75,8 @@ Key insights:
 - **Science**: Mars rovers or satellite launch planning
 
 Real-world tweaks:
-- Launch from a height: `y₀ ≠ 0`
-- Air resistance: add drag force `F = -kv`
+- Launch from a height: $y₀ ≠ 0$
+- Air resistance: add drag force $F = -kv$
 - Non-flat ground or wind effects
 
 ---
